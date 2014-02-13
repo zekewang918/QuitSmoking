@@ -1,0 +1,12 @@
+{
+    "project": {
+        "name": "demoapp",
+        "description": "CSCI 3130 Test App",
+        "version": "0.0.1"
+    },
+    "files": {},
+    "modules": {},
+    "classes": {},
+    "classitems": [],
+    "warnings": []
+}
