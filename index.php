@@ -145,6 +145,7 @@
                         </select>
                     </div>
                 <input type="submit" data-inline="true" data-ajax="false" name="register" value="Register" onclick=" return test()">
+                <input type="button" data-inline="true" data-ajax="false" name="back" value="Back" onclick="history.go(-1); return true;">
                 </form>
             </div>
             
