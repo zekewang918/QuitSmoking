@@ -90,7 +90,7 @@
                     </div>
                 
                 <input type="submit" data-inline="true" name="login" value="Login">
-                <a href="#register" data-inline="true" data-role="button">Register</a>
+                <a href="#register" data-transition = "slide" data-inline="true" data-role="button">Register</a>
                 </form>
             </div>
             
