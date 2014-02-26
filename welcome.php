@@ -54,8 +54,8 @@
             </div> 
             <div data-role="footer">
                 <div data-role="content" align="center">
-  					<a href="#" data-role="button" data-inline = "true" data-icon="star">Information</a>
-  					<a href="#" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
   				</div>
             </div>
         </div>
@@ -63,7 +63,7 @@
 		<div data-role="page" id="countMoney">
             <div data-role="header">
   				<h1>Quit Smoking</h1>
- 				<a href="#" data-role="button" data-icon="gear" data-iconpos="notext"></a>
+ 				<a href="#" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
             </div>
             <div data-role="content">
         		<h2>Hi, </h2>
@@ -72,9 +72,9 @@
             </div> 
             <div data-role="footer">
                 <div data-role="content" align="center">
-  					<a href="#" data-role="button" data-inline = "true" data-icon="star">Plan</a>
-  					<a href="#" data-role="button" data-inline = "true" data-icon="grid">List</a>
-  					<a href="#" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Plan</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="grid">List</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
   				</div>
             </div>
         </div>
