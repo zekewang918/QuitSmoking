@@ -29,6 +29,7 @@
 			} else {
 				mysqli_query($con, "INSERT INTO countMoney (User_name, number) VALUES ('$user', '$money')");
 			}
+			
 			mysqli_close($con);
 			
 		}
