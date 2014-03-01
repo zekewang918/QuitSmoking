@@ -20,6 +20,8 @@
 		{
 			$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
 			$money = $_POST['number'] * 2;
+			$number = $_POST['number'];
+			$date = date("Y-m-d H:i:s");
 			$result = mysqli_query($con, "SELECT User_name FROM countMoney WHERE User_name='$user'");
 			$count = mysqli_num_rows($result);
 			if ($count == 1)
@@ -29,8 +31,11 @@
 			} else {
 				mysqli_query($con, "INSERT INTO countMoney (User_name, number) VALUES ('$user', '$money')");
 			}
+
+			$result = mysqli_query($con, "SELECT User_Name FROM SmokingInfo WHERE User_Name='$user'");
+			$count = mysqli_num_rows($result);
+			mysqli_query($con, "INSERT INTO SmokingInfo (User_Name, Number, Date) VALUES ('$user', '$number', '$date')");
 			mysqli_close($con);
-			
 		}
 	}
 
@@ -60,6 +65,7 @@
                 <input type="button" id="plus" value="Plus" data-inline="true" onclick="add()">
                 <!--<input type="button" id="minus" value="Minus" data-inline="true" onclick="minus()">-->
                 <p id="display_money" style="color: red"></p>
+                <p><?php echo $date; ?></p>
                 <input type="submit" data-inline="true" name="save" value="Save">
             </form> 
             </div> 
