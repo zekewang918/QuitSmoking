@@ -52,7 +52,11 @@ function add() {
 	var num = document.getElementById('number').value;
     num++;
    	document.getElementById('number').value = num;
-   	document.getElementById('display_money').innerHTML = "The money you could have saved: $" + num * 2; 
+   	document.getElementById('display_money').innerHTML = "The money you could have saved: $" + num * 2;
+   	if (num > 15)
+   	{
+   		alert("You have too much today!");
+   	}
 }	
 /*		
 function minus() {

@@ -64,7 +64,9 @@
    				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="0" onchange="change()">
                 <input type="button" id="plus" value="Plus" data-inline="true" onclick="add()">
                 <!--<input type="button" id="minus" value="Minus" data-inline="true" onclick="minus()">-->
-                <b id="display_money" style="color: red"></b>
+
+                <p id="display_money" style="color: red"></p>
+
                 <p><?php echo $date; ?></p>
                 <input type="submit" data-inline="true" name="save" value="Save">
             </form> 
