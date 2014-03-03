@@ -72,14 +72,14 @@
             </div>
         </div>
         
-		<div data-role="page" id="countMoney">
+		<div data-role="page" id="report">
             <div data-role="header">
   				<h1>Quit Smoking</h1>
  				<a href="#" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
             </div>
             <div data-role="content">
-        		<h2>Hi, </h2>
-        		<h2>Your Plan: </h2>
+        		<h2>Hi, <?echo $user ?></h2>
+        		<h2>Your Report: </h2>
         		
             </div> 
             <div data-role="footer">
