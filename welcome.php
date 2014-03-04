@@ -85,8 +85,8 @@
  				<a href="#" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
             </div>
             <div data-role="content">
-        		<h2>Hi, </h2>
-        		<h2>Your Plan: </h2>
+        		<h2>Hi, <?php echo $user;?></h2>
+        		<h2>Your Plan: <?php echo $plan; ?></h2>
         		
             </div> 
             <div data-role="footer">
