@@ -10,7 +10,7 @@
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
 			$username = $_POST['username'];
-			$password = $_POST['password'];
+			$password = sha1($_POST['password']);
 			$email = $_POST['email'];
             $plan = $_POST['plan'];
 		
@@ -28,7 +28,7 @@
 		if (isset($_POST['login']))
 		{ 
             $username_login = $_POST['username_login'];
-    		$password_login = $_POST['password_login'];
+    		$password_login = sha1($_POST['password_login']);
     		$check_user = mysqli_query($con, "SELECT * FROM UserInfo WHERE User_Name='$username_login' AND Password='$password_login'");
             $first_name = '';
             $plan = '';
