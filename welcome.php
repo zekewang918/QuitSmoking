@@ -4,12 +4,12 @@
 	$user = $_SESSION['username'];
     $plan = $_SESSION['plan'];
     $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
-    $result = mysqli_query($con, "SELECT User_name FROM countMoney WHERE User_name='$user'");
+    $result = mysqli_query($con, "SELECT User_name FROM UserInfo WHERE User_name='$user'");
     $count = mysqli_num_rows($result);
 			//if the user exists, update their data, and create a new data row if the user does not exist
 			if ($count == 1)
 			{
-				//mysqli_query($con, "UPDATE countMoney SET number= '".$money."' WHERE User_name = '".$user."'");
+				//mysqli_query($con, "UPDATE UserInfo SET number= '".$money."' WHERE User_name = '".$user."'");
 				mysqli_query($con, "UPDATE countMoney SET number= '$money' WHERE User_name = '$user'");
 			} else {
 				exit;
