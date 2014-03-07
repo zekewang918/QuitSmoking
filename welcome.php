@@ -4,12 +4,23 @@
 	$user = $_SESSION['username'];
     $plan = $_SESSION['plan'];
     $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
-    $result = mysqli_query($con, "SELECT User_name FROM UserInfo WHERE User_name='$user'");
+    $result = mysqli_query($con, "SELECT User_Name FROM UserInfo WHERE User_Name='$user'");
     $count = mysqli_num_rows($result);
+    
+    //Member since:
+    
+    $memberSince = mysqli_query($con, "SELECT Member_Since FROM UserInfo WHERE User_Name='$user'");
+    while ($row = mysqli_fetch_array($memberSince))
+            {
+                $printableDate = $row['Member_Since'];
+            }
+    
+    //echo $memberSince;
+   
 			//if the user exists, update their data, and create a new data row if the user does not exist
 			if ($count == 1)
 			{
-				//mysqli_query($con, "UPDATE UserInfo SET number= '".$money."' WHERE User_name = '".$user."'");
+                
 				mysqli_query($con, "UPDATE countMoney SET number= '$money' WHERE User_name = '$user'");
 			} else {
 				exit;
@@ -34,8 +45,9 @@
 
 			$result = mysqli_query($con, "SELECT User_Name FROM SmokingInfo WHERE User_Name='$user'");
 			$count = mysqli_num_rows($result);
-			mysqli_query($con, "INSERT INTO SmokingInfo (User_Name, Number, Date) VALUES ('$user', '$number', '$date')");
-			mysqli_close($con);
+			mysqli_query($con, "INSERT INTO UserInfo (User_Name, Number, Date) VALUES ('$user', '$number', '$date')");
+			mysqli_close($con); 
+            
 		}
 	}
 
@@ -55,8 +67,12 @@
         <div data-role="page" id="countSmoking">
             <div data-role="header">
   				<h1>Quit Smoking</h1>
- 			</div>
+ 				            </div>
             <div data-role="content">
+               
+               <!--Member since info -->
+                <p>Member Since: <?php echo $printableDate; ?></p>
+                
         		<p>Hi, <?php echo $user;?></p>
         		<p>Your Plan: <?php echo $plan; ?></p>
             <!--<form action="demo_form.asp" method="POST">-->
@@ -64,10 +80,8 @@
    				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="0" onchange="change()">
                 <input type="button" id="plus" value="Plus" data-inline="true" onclick="add()">
                 <!--<input type="button" id="minus" value="Minus" data-inline="true" onclick="minus()">-->
-
                 <p id="display_money" style="color: red"></p>
-
-                <p><?php echo $date; ?></p>
+                <p><?php echo $date;?></p>
                 <input type="submit" data-inline="true" name="save" value="Save">
             </form> 
             </div> 
@@ -85,8 +99,8 @@
  				<a href="#" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
             </div>
             <div data-role="content">
-        		<h2>Hi, <?php echo $user;?></h2>
-        		<h2>Your Plan: <?php echo $plan; ?></h2>
+        		<h2>Hi, </h2>
+        		<h2>Your Plan: </h2>
         		
             </div> 
             <div data-role="footer">
