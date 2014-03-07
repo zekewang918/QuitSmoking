@@ -45,7 +45,15 @@ function change() {
 	document.getElementById('display_money').innerHTML = "The money you could have saved: $" + num * 2;
 }
 
-
+function minus() {
+    var num = document.getElementById('number').value;
+    num--;
+    if (num < 0){
+        num = 0;
+    }
+  	document.getElementById('number').value = num;
+    document.getElementById('display_money').innerHTML = "The money you could have saved: $" + num * 2; 
+}
 
 
 function add() {
@@ -53,12 +61,4 @@ function add() {
     num++;
    	document.getElementById('number').value = num;
    	document.getElementById('display_money').innerHTML = "The money you could have saved: $" + num * 2; 
-}	
-/*		
-function minus() {
-	alert(1);
-    var num = document.getElementById('number').value;
-	num--;
-  	document.getElementById('number').value = num;
 }
-*/

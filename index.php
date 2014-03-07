@@ -123,6 +123,7 @@
 
         <div data-role="page" id="register">
             <div data-role="header">
+                <a href="#login" data-role="button" data-icon="home" data-iconpos="notext"></a>
                 <h1>Register</h1>
             </div>
             

@@ -66,6 +66,7 @@
 
         <div data-role="page" id="countSmoking">
             <div data-role="header">
+                <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
   				<h1>Quit Smoking</h1>
  				            </div>
             <div data-role="content">
@@ -78,8 +79,8 @@
             <!--<form action="demo_form.asp" method="POST">-->
             <form method="POST" action="welcome.php">
    				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="0" onchange="change()">
-                <input type="button" id="plus" value="Plus" data-inline="true" onclick="add()">
-                <!--<input type="button" id="minus" value="Minus" data-inline="true" onclick="minus()">-->
+                <input type="button" id="DIFFERENTplus" value="Plus" data-inline="true" onclick="add()">
+                <input type="button" id="DIFFERENTsubstract" value="Subtract" data-inline="true" onclick="minus()">
                 <p id="display_money" style="color: red"></p>
                 <p><?php echo $date;?></p>
                 <input type="submit" data-inline="true" name="save" value="Save">
@@ -113,4 +114,4 @@
         </div>
       
     </body>
-</html>
+</html>	
