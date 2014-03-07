@@ -10,15 +10,18 @@
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
 			$username = $_POST['username'];
-			$password = sha1($_POST['password']);
+			$password = $_POST['password'];
 			$email = $_POST['email'];
             $plan = $_POST['plan'];
+            
+            //member since
+            $memberSince = date("Y-m-d H:i:s");
 		
 			$result = mysqli_query("SELECT User_Name FROM UserInfo WHERE User_Name='$username'");
 		
 			if (!$result)
 			{
-				mysqli_query($con, "INSERT INTO UserInfo (First_Name, Last_Name, User_Name, Password, Email, Plan) VALUES ('$fname', '$lname', '$username', '$password', '$email', '$plan')");
+				mysqli_query($con, "INSERT INTO UserInfo (First_Name, Last_Name, User_Name, Password, Email, Plan, Member_Since) VALUES ('$fname', '$lname', '$username', '$password', '$email', '$plan', '$memberSince')");
 
 			} else {
     		 //user name exists   
@@ -28,7 +31,7 @@
 		if (isset($_POST['login']))
 		{ 
             $username_login = $_POST['username_login'];
-    		$password_login = sha1($_POST['password_login']);
+    		$password_login = $_POST['password_login'];
     		$check_user = mysqli_query($con, "SELECT * FROM UserInfo WHERE User_Name='$username_login' AND Password='$password_login'");
             $first_name = '';
             $plan = '';
