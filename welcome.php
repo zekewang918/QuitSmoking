@@ -1,6 +1,6 @@
 <?php
-	SESSION_START();
-	
+    SESSION_START();
+
 	$user = $_SESSION['username'];
     $plan = $_SESSION['plan'];
     $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
@@ -14,6 +14,17 @@
             {
                 $printableDate = $row['Member_Since'];
             }
+            
+    $numQuery = mysqli_query($con, "SELECT * FROM SmokingFacts");
+    $numFacts = mysqli_num_rows($numQuery);
+    $myRandom = rand(0, $numFacts);
+    $fact = mysqli_query($con, "SELECT Facts FROM SmokingFacts WHERE 'index' ='0'");
+    $hehe = mysqli_num_rows($fact);
+    $printableFact = '';
+    while ($row = mysqli_fetch_array($fact))
+    {
+        $printableFact = $row['Facts'];
+    }
     
     //echo $memberSince;
    
@@ -46,11 +57,36 @@
 			$result = mysqli_query($con, "SELECT User_Name FROM SmokingInfo WHERE User_Name='$user'");
 			$count = mysqli_num_rows($result);
 			mysqli_query($con, "INSERT INTO UserInfo (User_Name, Number, Date) VALUES ('$user', '$number', '$date')");
-			mysqli_close($con); 
+            
+            
+            
+            mysqli_close($con); 
             
 		}
 	}
+    $con = mysql_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+    $result = mysql_query("SELECT * FROM SmokingInfo WHERE First_Name = '$fname' AND Last_Name = '$lname'");
 
+	$output = "<table border='1'>
+	<tr>
+	<th>Firstname</th>
+	<th>Lastname</th>
+	<th>Number</th>
+	<th>Date</th>
+	</tr>";
+
+	while($row = mysql_fetch_array($result))
+  	{
+  		$output.= "<tr>"
+  		"<td>" . $row['First_Name'] . "</td>";
+  		"<td>" . $row['Last_Name'] . "</td>";
+  		"<td>" . $row['Number'] . "</td>";
+  		"<td>" . $row['Date'] . "</td>";
+  		"</tr>";
+  	}
+	$output.="</table>";
+
+	mysql_close($con);
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,15 +103,17 @@
         <div data-role="page" id="countSmoking">
             <div data-role="header">
                 <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
+                <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
   				<h1>Quit Smoking</h1>
  				            </div>
             <div data-role="content">
                
                <!--Member since info -->
-                <p>Member Since: <?php echo $printableDate; ?></p>
+                <p>Member Since: <?php echo $printableDate;?></p>
                 
         		<p>Hi, <?php echo $user;?></p>
         		<p>Your Plan: <?php echo $plan; ?></p>
+                <p>Your Fact: <?php echo $printableFact; echo $hehe;?></p>
             <!--<form action="demo_form.asp" method="POST">-->
             <form method="POST" action="welcome.php">
    				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="0" onchange="change()">
@@ -94,20 +132,20 @@
             </div>
         </div>
         
-		<div data-role="page" id="countMoney">
+	    <div data-role="page" id="history">
             <div data-role="header">
-  				<h1>Quit Smoking</h1>
- 				<a href="#" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
+      			<h1>Quit Smoking</h1>
+ 				<a href="#countSmoking" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
             </div>
             <div data-role="content">
         		<h2>Hi, </h2>
-        		<h2>Your Plan: </h2>
-        		
+        		<h2>History: </h2>
+        		<?php echo $output; ?>
             </div> 
             <div data-role="footer">
                 <div data-role="content" align="center">
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Plan</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="grid">List</a>
+  					<a href="#hisotory" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="grid">Information</a>
   					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
   				</div>
             </div>
