@@ -56,16 +56,18 @@
 
 			$result = mysqli_query($con, "SELECT User_Name FROM SmokingInfo WHERE User_Name='$user'");
 			$count = mysqli_num_rows($result);
-			mysqli_query($con, "INSERT INTO UserInfo (User_Name, Number, Date) VALUES ('$user', '$number', '$date')");
+            $firstname = $_SESSION['firstname'];
+            $lastname = $_SESSION['lastname'];
+			mysqli_query($con, "INSERT INTO SmokingInfo (User_Name, First_Name, Last_Name, Number, Date) VALUES ('$user', '$firstname', '$lastname', '$number', '$date')");
             
             
             
-            mysqli_close($con); 
+  //          mysqli_close($con); 
             
 		}
 	}
-    $con = mysql_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
-    $result = mysql_query("SELECT * FROM SmokingInfo WHERE First_Name = '$fname' AND Last_Name = '$lname'");
+ //   $con = mysql_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+    $result = mysqli_query($con, "SELECT * FROM SmokingInfo WHERE User_Name = '$user'");
 
 	$output = "<table border='1'>
 	<tr>
@@ -74,19 +76,30 @@
 	<th>Number</th>
 	<th>Date</th>
 	</tr>";
-
-	while($row = mysql_fetch_array($result))
+    $limit = '';
+    while($row = mysqli_fetch_assoc($result))
   	{
-  		$output.= "<tr>"
-  		"<td>" . $row['First_Name'] . "</td>";
-  		"<td>" . $row['Last_Name'] . "</td>";
-  		"<td>" . $row['Number'] . "</td>";
-  		"<td>" . $row['Date'] . "</td>";
+          
+  		$output.= "<tr>".
+  		"<td>" . $row['First_Name'] . "</td>".
+  		"<td>" . $row['Last_Name'] . "</td>".
+  		"<td>" . $row['Number'] . "</td>".
+  		"<td>" . $row['Date'] . "</td>".
   		"</tr>";
+        $limit = $row['Number'];
   	}
 	$output.="</table>";
-
-	mysql_close($con);
+    $_SESSION['output'] = $output;
+    $msg = "";
+    if ($limit <= 1)
+    {
+        $msg = "You had $limit cigarette yesterday! You are very close to success!";
+    } else {
+        $msg = "You had $limit cigaretts yesterday!";
+        $limit--;
+        $msg .= " Today you can only have $limit cigarettes!";
+    }
+	mysqli_close($con);
 ?>
 <!DOCTYPE html>
 <html>
@@ -103,9 +116,11 @@
         <div data-role="page" id="countSmoking">
             <div data-role="header">
                 <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
-                <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
+                
+                <a href= "http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" value = "Search">Get Help</a>
+
   				<h1>Quit Smoking</h1>
- 				            </div>
+ 		    </div>
             <div data-role="content">
                
                <!--Member since info -->
@@ -117,39 +132,22 @@
             <!--<form action="demo_form.asp" method="POST">-->
             <form method="POST" action="welcome.php">
    				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="0" onchange="change()">
+                <p style="color: red"><?php echo $msg;?></p>
                 <input type="button" id="DIFFERENTplus" value="Plus" data-inline="true" onclick="add()">
                 <input type="button" id="DIFFERENTsubstract" value="Subtract" data-inline="true" onclick="minus()">
                 <p id="display_money" style="color: red"></p>
-                <p><?php echo $date;?></p>
+                <p style="color:red"><?php echo $date;?></p>
                 <input type="submit" data-inline="true" name="save" value="Save">
             </form> 
             </div> 
             <div data-role="footer">
                 <div data-role="content" align="center">
+                    <a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
   					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
   					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
   				</div>
             </div>
         </div>
-        
-	    <div data-role="page" id="history">
-            <div data-role="header">
-      			<h1>Quit Smoking</h1>
- 				<a href="#countSmoking" data-transition = "slide" data-role="button" data-icon="gear" data-iconpos="notext"></a>
-            </div>
-            <div data-role="content">
-        		<h2>Hi, </h2>
-        		<h2>History: </h2>
-        		<?php echo $output; ?>
-            </div> 
-            <div data-role="footer">
-                <div data-role="content" align="center">
-  					<a href="#hisotory" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="grid">Information</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
-  				</div>
-            </div>
-        </div>
-      
+
     </body>
 </html>	
