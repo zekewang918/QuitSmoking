@@ -245,8 +245,14 @@
                     <a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
   					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
   					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
+  					<a href="Statistics.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Your statitics</a>
+
   				</div>
             </div>
         </div>
     </body>
+<<<<<<< HEAD
 </html>	
+=======
+</html>
+>>>>>>> FETCH_HEAD
