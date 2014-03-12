@@ -8,7 +8,8 @@
     $count = mysqli_num_rows($result);
     
     //Member since:
-    
+    $display_num = 0;
+    $warning = '';
     $memberSince = mysqli_query($con, "SELECT Member_Since FROM UserInfo WHERE User_Name='$user'");
     while ($row = mysqli_fetch_array($memberSince))
             {
@@ -36,40 +37,10 @@
 			} else {
 				exit;
 			}
-	if ($_SERVER['REQUEST_METHOD'] == 'POST')
-	{
-		if (isset($_POST['save']))
-		{
-			$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
-			$money = $_POST['number'] * 2;
-			$number = $_POST['number'];
-			$date = date("Y-m-d H:i:s");
-			$result = mysqli_query($con, "SELECT User_name FROM countMoney WHERE User_name='$user'");
-			$count = mysqli_num_rows($result);
-			if ($count == 1)
-			{
-				//mysqli_query($con, "UPDATE countMoney SET number= '".$money."' WHERE User_name = '".$user."'");
-				mysqli_query($con, "UPDATE countMoney SET number= '$money' WHERE User_name = '$user'");
-			} else {
-				mysqli_query($con, "INSERT INTO countMoney (User_name, number) VALUES ('$user', '$money')");
-			}
+            
+        $result = mysqli_query($con, "SELECT * FROM SmokingInfo WHERE User_Name = '$user'");
 
-			$result = mysqli_query($con, "SELECT User_Name FROM SmokingInfo WHERE User_Name='$user'");
-			$count = mysqli_num_rows($result);
-            $firstname = $_SESSION['firstname'];
-            $lastname = $_SESSION['lastname'];
-			mysqli_query($con, "INSERT INTO SmokingInfo (User_Name, First_Name, Last_Name, Number, Date) VALUES ('$user', '$firstname', '$lastname', '$number', '$date')");
-            
-            
-            
-  //          mysqli_close($con); 
-            
-		}
-	}
- //   $con = mysql_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
-    $result = mysqli_query($con, "SELECT * FROM SmokingInfo WHERE User_Name = '$user'");
-
-	$output = "<table border='1'>
+    $output = "<table border='1'>
 	<tr>
 	<th>Firstname</th>
 	<th>Lastname</th>
@@ -99,6 +70,59 @@
         $limit--;
         $msg .= " Today you can only have $limit cigarettes!";
     }
+    
+	if ($_SERVER['REQUEST_METHOD'] == 'POST')
+	{
+		if (isset($_POST['save']))
+		{
+			$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+			$money = $_POST['number'] * 2;
+			$number = $_POST['number'];
+			$date = date("Y-m-d H:i:s");
+			$result = mysqli_query($con, "SELECT User_name FROM countMoney WHERE User_name='$user'");
+			$count = mysqli_num_rows($result);
+			if ($count == 1)
+			{
+				//mysqli_query($con, "UPDATE countMoney SET number= '".$money."' WHERE User_name = '".$user."'");
+				mysqli_query($con, "UPDATE countMoney SET number= '$money' WHERE User_name = '$user'");
+                    	mysqli_query($con, "UPDATE SmokingInfo SET Number = '$number' WHERE User_Name = '$user'");
+                        $msg = "";
+                
+			} else {
+				mysqli_query($con, "INSERT INTO countMoney (User_name, number) VALUES ('$user', '$money')");
+                    	mysqli_query($con, "INSERT INTO SmokingInfo (User_Name, First_Name, Last_Name, Number, Date) VALUES ('$user', '$firstname', '$lastname', '$number', '$date')");
+			}
+
+			$result = mysqli_query($con, "SELECT User_Name FROM SmokingInfo WHERE User_Name='$user'");
+			$count = mysqli_num_rows($result);
+            $firstname = $_SESSION['firstname'];
+            $lastname = $_SESSION['lastname'];
+			mysqli_query($con, "INSERT INTO SmokingInfo (User_Name, First_Name, Last_Name, Number, Date) VALUES ('$user', '$firstname', '$lastname', '$number', '$date')");
+        
+		}
+        if (isset($_POST['plus']))
+        {
+            $display_num = $_POST['number'];
+            if ($display_num < $limit)
+            {
+                $display_num++;
+            }else {
+                $display_num = '';
+                $warning = "You cannot have more!";
+            }
+            
+        }
+        if (isset($_POST['minus']))
+        {
+            $display_num = $_POST['number'];
+            if ($display_num > 0)
+            {
+                $display_num--;
+            }
+        }
+	}
+ //   $con = mysql_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+
 	mysqli_close($con);
 ?>
 <!DOCTYPE html>
@@ -108,7 +132,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-        <script type="text/javascript" src= "javascript/javascript.js"></script>
+<!--        <script type="text/javascript" src= "javascript/javascript.js"></script>-->
 
     </head>
     <body>
@@ -131,10 +155,10 @@
                 <p>Your Fact: <?php echo $printableFact; echo $hehe;?></p>
             <!--<form action="demo_form.asp" method="POST">-->
             <form method="POST" action="welcome.php">
-   				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="0" onchange="change()">
+   				<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="<?php echo $display_num; ?>" placeholder="<?php echo $warning; ?>" />
                 <p style="color: red"><?php echo $msg;?></p>
-                <input type="button" id="DIFFERENTplus" value="Plus" data-inline="true" onclick="add()">
-                <input type="button" id="DIFFERENTsubstract" value="Subtract" data-inline="true" onclick="minus()">
+                <input type="submit" name = "plus" value="Plus" data-inline="true">
+                <input type="submit" name="minus" value="Subtract" data-inline="true">
                 <p id="display_money" style="color: red"></p>
                 <p style="color:red"><?php echo $date;?></p>
                 <input type="submit" data-inline="true" name="save" value="Save">
@@ -143,12 +167,11 @@
             <div data-role="footer">
                 <div data-role="content" align="center">
                     <a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
+  					<a href="info.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
   					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
-  					<a href="Statistics.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Your statitics</a>
   				</div>
             </div>
         </div>
 
     </body>
-</html>	
+</html>
