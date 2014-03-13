@@ -1,4 +1,7 @@
 <?php
+	#
+	# @author Group 2
+	#
     SESSION_START();
     
 	#
@@ -7,14 +10,14 @@
 	# just typing the url, they will get a white page rather than the information.
 	# 
 	# @param String $output
-	# @global bool $_SESSION['status']
+	# 
 	
 	if (!$_SESSION['status'])
 	{
 		exit;
 	}
     $output = $_SESSION['output'];
-    $_SESSION['status'] = false;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,13 +46,11 @@
                 <?php echo $output;?>
             </div> 
             
-            <!-- The footer division displays the options that users can select, which includes history, information, and setting. -->
+            <!-- The footer division displays the options that users can select, which includes a back button. -->
             
             <div data-role="footer">
                 <div data-role="content" align="center">
-                    <a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
+                    <a href="welcome.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">Back</a>
   				</div>
             </div>
         </div>
