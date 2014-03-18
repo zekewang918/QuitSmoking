@@ -276,7 +276,7 @@
                 <div data-role="content" align="center">
                     <a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
   					<a href="info.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Profile</a>
   				</div>
             </div>
         </div>
