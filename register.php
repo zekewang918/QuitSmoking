@@ -1,5 +1,6 @@
 <?php
-
+	#
+	# @author Group 2
 	#
 	# In order to have the register page display errors when users do not enter information
 	# or entered information wrong, we created these variables and set them empty string. They
@@ -138,6 +139,7 @@
             # current database coexists the same username. If no, write the information into the UserIno
             # table in the database.
             #
+            # @param String $memberSince
             
             $memberSince = date("Y-m-d H:i:s");
 			$result = mysqli_query("SELECT User_Name FROM UserInfo WHERE User_Name='$username'");

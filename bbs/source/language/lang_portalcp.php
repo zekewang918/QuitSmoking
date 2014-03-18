@@ -1,0 +1,103 @@
+<?php
+
+/**
+ *      [Discuz!] (C)2001-2099 Comsenz Inc.
+ *      This is NOT a freeware, use is subject to license terms
+ *
+ *      $Id: lang_portalcp.php 30107 2012-05-11 02:10:58Z svn_project_zhangjie $
+ */
+
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
+
+$lang = array(
+	'block_diy_nopreview' => '<p>This module contains the js code, Not immediately preview, Please click the Save View</p>',
+	'block_diy_summary_html_tag' => 'Custom content errors, HTML tags：',
+	'block_diy_summary_not_closed' => ' Does not match',
+	'block_all_category' => 'All Categories',
+	'block_first_category' => 'Top Category',
+	'block_all_forum' => 'All forums',
+	'block_all_group' => 'All user group',
+	'block_all_type' => 'All Categories',
+	'file_size_limit' => 'The file can not be larger than {size} KB，Please go back．',
+	'set_to_conver' => 'Set the cover',
+	'small_image' => 'small picture',
+	'insert_small_image' => 'Insert small picture',
+	'insert_large_image' => 'Insert large picture',
+	'insert_file' => 'Insert File',
+	'delete' => 'Del',
+	'upload_error' => 'upload failed',
+	'upload_remote_failed' => 'Remote upload failed',
+	'article_noexist' => 'The specified article does not exist，Please check',
+	'article_noallowed' => 'You do not have permission to operate on specified articles',
+	'article_publish_noallowed' => 'You do not have permission to post publishing operation',
+	'article_category_empty' => 'Sorry，Part can not be empty',
+	'article_edit_nopermission' => 'Sorry，You do not have permission to this article operation',
+	'article_publish' => 'Publish articles',
+	'article_manage' => 'Article management',
+	'article_tag' => 'Tag',
+	'select_category' => 'Select a Category',
+	'blockstyle_diy' => 'Custom template',
+
+	'article_pushplus_info' => '<p><center><i><a href="{url}" class="xg1 xs1">This article by {author} Provided</a></i></center></p>',
+
+	'diytemplate_name_null' => '[Not filled]',
+	'portal_view_name' => 'Articles View page',
+	'forum_viewthread_name' => 'Posts View page',
+	'portal/index' => 'Portal Home',
+	'portal/list' => 'Article list page (Public)',
+	'portal/view' => 'Article View page (public)',
+	'portal/comment' => 'Article comments page',
+	'forum/discuz' => 'Forum Home',
+	'forum/viewthread' => 'Posts View page (Public)',
+	'forum/forumdisplay' => 'Forum List page (Public)',
+	'group/index' => $_G['setting']['navs'][3]['navname'].'Home',
+	'group/group_my' => 'My'.$_G['setting']['navs'][3]['navname'].'Home',
+	'group/group' => $_G['setting']['navs'][3]['navname'].'Content page',
+	'home/space_home' => 'Homepage',
+	'home/space_trade' => 'Space merchandise page',
+	'home/space_top' => 'Space ranking',
+	'home/space_thread' => 'Space post page',
+	'home/space_reward' => 'Space Reward page',
+	'home/space_share_list' => 'Space Share List page',
+	'home/space_share_view' => 'Space Share View page',
+	'space_share_view' => 'Space Share View page',
+	'home/space_poll' => 'Space Voting page',
+	'home/space_pm' => 'Space short messages page',
+	'home/space_notice' => 'Space Remind Pages',
+	'home/space_group' => 'Space'.$_G['setting']['navs'][3]['navname'].'pape',
+	'home/space_friend' => 'Space Friends page',
+	'home/space_favorite' => 'Spatial Favorite page',
+	'home/space_doing' => 'Space Record Pages',
+	'home/space_debate' => 'Space Debate page',
+	'home/space_blog_view' => 'Space Log View page',
+	'home/space_blog_list' => 'Space Log List page',
+	'home/space_album_view' => 'Space Album View page',
+	'home/space_album_pic' => 'Space Image View page',
+	'home/space_album_list' => 'Space Album List page',
+	'home/space_activity' => 'Space activities page',
+	'ranklist/ranklist' => 'All ranking page',
+	'ranklist/blog' => 'Log ranking page',
+	'ranklist/poll' => 'Vote ranking page',
+	'ranklist/activity' => 'Activity ranking page',
+	'ranklist/forum' => 'Forum ranking page',
+	'ranklist/picture' => 'Picture ranking page',
+	'ranklist/group' => 'Groups ranking page',
+	'ranklist/thread' => 'Posts ranking page',
+	'ranklist/member' => 'Users ranking page',
+	'other_page' => 'Non-DIY Module',
+	'upload' => 'Upload',
+	'remote' => 'Remote',
+	'portal_index' => 'Portal Home',
+	'portal_topic_blue' => 'Blue tones thematic',
+	'portal_topic_green' => 'Green tones thematic',
+	'portal_topic_grey' => 'Gray tones thematic',
+	'portal_topic_red' => 'Red tones thematic',
+
+	'itemtypename0' => 'Auto',
+	'itemtypename1' => '<span style="color: #FF0000">Fix</span>',
+	'itemtypename2' => '<span style="color: #00BFFF">Edit</span>',
+	'itemtypename3' => '<span style="color: #0000FF">Push</span>',
+
+);

@@ -1,22 +1,26 @@
 <?php
-	
 	#
+	# @author Group 2
 	# Session_start() enables the webpage to have session data that can be used/accessed from
 	# page to page.  
 	#
-	# @param boolean session_start
+	# @param boolean SESSION_START()
 	
 	SESSION_START();
 	
 	#
     # $con variable is to set up the connection between the php sever and the database server
     #
-    
+    # @param boolean $_SESSION['status']
+    #
+
+    $_SESSION['status'] = false;
 	$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
 	
 	#
     # the if statement is triggerd when the user clicks the submmit button.
     #
+    # @global array $_SERVER[]
     
 	if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
@@ -24,6 +28,7 @@
 		#
 		# if the login button was clicked, the following code will run
 		#
+		# @global array $_POST[]
 		
 		if (isset($_POST['login']))
 		{ 
@@ -33,6 +38,8 @@
 			# in the form by using the $_POST superglobal and stored those information. Then $check_user performs a 
 			# query search with the combination of the username and password to see if the user is registered.
 			#
+			# @param String $username_login
+			# @param String $password_login
 			
             $username_login = $_POST['username_login'];
     		$password_login = $_POST['password_login'];
@@ -43,6 +50,9 @@
             # These information is retrieved by fetching a query result into an associative array and then store these data 
             # into the variables created before.
             #
+            # @param String $first_name
+            # @param String $last_name
+            # @param String $plan
             
             $first_name = '';
             $last_name = '';
@@ -74,9 +84,10 @@
             # the query search should yeild one row. The page will be redirected to welcome.php if user successfully logged
             # in.
             #
+            # @param int $count
+            #
             
 			$count = mysqli_num_rows($check_user);
-            $_SESSION['status'] = false;
 			if ($count == 1)
 			{
 				header("Location: welcome.php");

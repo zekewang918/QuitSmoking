@@ -1,0 +1,98 @@
+<?php
+
+/**
+ *      [Discuz!] (C)2001-2099 Comsenz Inc.
+ *      This is NOT a freeware, use is subject to license terms
+ *
+ *      $Id: lang_tradelist.php 27449 2012-02-01 05:32:35Z zhangguosheng $
+ */
+
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
+
+$lang = array
+(
+	'tradelist_fids' => 'In forum',
+	'tradelist_fids_comment' => 'Set allowed to participate in the forum called new posts, You can hold down the CTRL multiple choice, Select All or Deselect All are not limited',
+	'tradelist_uids' => 'Initiator UID',
+	'tradelist_uids_comment' => 'Setting activities initiator UID, a plurality UID please use a comma "," separated.',
+	'tradelist_startrow' => 'Initial data rows',
+	'tradelist_startrow_comment' => 'For information on setting the number of rows of data starting, Please enter specific values, 0 from the first line, And so on',
+	'tradelist_items' => 'Display the number of data',
+	'tradelist_items_comment' => 'Set up a display theme number of entries, Please set as an integer greater than 0',
+	'tradelist_titlelength' => 'Title maximum bytes',
+	'tradelist_titlelength_comment' => 'Set when the title is longer than the set, Whether the title is automatically reduced to the number of bytes in the set, 0 will not autoreduction',
+	'tradelist_fnamelength' => 'Title maximum number of bytes containing the forum name',
+	'tradelist_fnamelength_comment' => 'Set the title length in forum name length counted together',
+	'tradelist_summarylength' => 'The number of theme brief text',
+	'tradelist_summarylength_comment' => 'Set the theme brief text number 0 to use the default value of 255',
+	'tradelist_tids' => 'Specify the subject',
+	'tradelist_tids_comment' => 'Set to specify the display theme tid, a plurality tid please use a comma "," separated. Note: Leave blank for no filtering',
+	'tradelist_keyword' => 'Title Keyword',
+	'tradelist_keyword_comment' => 'Set the title contains keywords. Note: Leave blank for no filtering; Keywords can use wildcards *; Search by more keywords, available space, or AND connection. As win32 AND unix; Match multiple keywords by part | or OR connection. As win32 OR unix',
+	'tradelist_typeids' => 'Theme type',
+	'tradelist_typeids_comment' => 'Set specific type theme.Note: Select All or Deselect All are without any filtering',
+	'tradelist_typeids_all' => 'All Theme type',
+	'tradelist_sortids' => 'Type info',
+	'tradelist_sortids_comment' => 'Set the theme of the type information. Note: Select All or Deselect All are without any filtering',
+	'tradelist_sortids_all' => 'All type info',
+	'tradelist_digest' => 'Digest Topics filter',
+	'tradelist_digest_comment' => 'Set a specific range of topics. Note: Select All or Deselect All are without any filtering',
+	'tradelist_digest_0' => 'Normal Threads',
+	'tradelist_digest_1' => 'Digest I',
+	'tradelist_digest_2' => 'Digest II',
+	'tradelist_digest_3' => 'Digest III',
+	'tradelist_stick' => 'Top topic filter',
+	'tradelist_stick_comment' => 'Set a specific range of topics. Note: Select All or Deselect All are without any filtering',
+	'tradelist_stick_0' => 'Normal Threads',
+	'tradelist_stick_1' => 'Top I',
+	'tradelist_stick_2' => 'Top II',
+	'tradelist_stick_3' => 'Top III',
+	'tradelist_special' => 'Special topic filter',
+	'tradelist_special_comment' => 'Set a specific range of topics. Note: Select All or Deselect All are without any filtering',
+	'tradelist_special_1' => 'Vote theme',
+	'tradelist_special_2' => 'Commodity theme',
+	'tradelist_special_3' => 'Reward theme',
+	'tradelist_special_4' => 'Events Themes',
+	'tradelist_special_5' => 'The subject of debate',
+	'tradelist_special_0' => 'Normal Threads',
+	'tradelist_special_reward' => 'Reward topic filter',
+	'tradelist_special_reward_comment' => 'Set a specific type of reward theme',
+	'tradelist_special_reward_0' => 'All',
+	'tradelist_special_reward_1' => 'Resolved',
+	'tradelist_special_reward_2' => 'Unresolved',
+	'tradelist_recommend' => 'Recommended topic filter',
+	'tradelist_recommend_comment' => 'Set whether to display only the theme of the recommended',
+	'tradelist_orderby' => 'Topic Sort by',
+	'tradelist_orderby_comment' => 'Set which field or sort the topics',
+	'tradelist_orderby_lastpost' => 'Last reply time reverse sort',
+	'tradelist_orderby_dateline' => 'Published reverse order',
+	'tradelist_orderby_replies' => 'Sort by Replies reverse',
+	'tradelist_orderby_views' => 'Press Views reverse sort',
+	'tradelist_orderby_heats' => 'Heat reverse order',
+	'tradelist_orderby_recommends' => 'Evaluation reverse order by subject',
+	'tradelist_orderby_hourviews' => 'Within the time specified Views reverse sort',
+	'tradelist_orderby_todayviews' => 'Press the reverse order of the day Views',
+	'tradelist_orderby_weekviews' => 'Views this week reverse order',
+	'tradelist_orderby_monthviews' => 'Views reverse order by month',
+	'tradelist_orderby_hours' => 'Specified time (hours)',
+	'tradelist_orderby_hours_comment' => 'Views reverse sort within a specified time time value',
+	'tradelist_orderby_todayhots' => 'The day has sold reverse order',
+	'tradelist_orderby_weekhots' => 'Week sold reverse order',
+	'tradelist_orderby_monthhots' => 'Month has sold reverse order',
+	'tradelist_price_add' => ' Append ',
+	'tradelist_place' => 'Event Location',
+	'tradelist_class' => 'Type of activity',
+	'tradelist_gender' => 'Required Gender',
+	'tradelist_gender_0' => 'Not limited',
+	'tradelist_gender_1' => 'Boy',
+	'tradelist_gender_2' => 'Girl',
+	'tradelist_orderby_weekstart' => 'Sort by within a week Event Start Time',
+	'tradelist_orderby_monthstart' => 'Sort by month Event Start Time',
+	'tradelist_orderby_weekexp' => 'Sort by week registration deadline',
+	'tradelist_orderby_monthexp' => 'To registration deadline Sort by month',
+	'tradelist_highlight' => 'Get Highlight value',
+);
+
+?>
