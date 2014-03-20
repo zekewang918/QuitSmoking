@@ -126,7 +126,7 @@
             <div data-role="header">
                 <a href="#" data-role="button" data-icon="home" data-iconpos="notext"></a>
   				<h1>Welcome</h1>
- 				<a href="#" data-role="button" data-icon="search" data-iconpos="notext"></a>
+ 				<a href="#" data-role="button" data-icon="search">Forum</a>
             </div>
             
             <!-- The content section contains a small form that has only a username field, a password
