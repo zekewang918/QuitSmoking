@@ -247,6 +247,7 @@
             <div data-role="header">
                 <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
                 <a href= "http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" value = "Search">Get Help</a>
+                <a href= "bbs.blackroom.me" value = "Forum">Forum</a>
   				<h1>Quit Smoking</h1>
  		    </div>
  		    
