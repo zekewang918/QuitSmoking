@@ -133,6 +133,9 @@
                  field, a submit button, and a register button. -->
     	     
             <div data-role="content">
+                <!-- quit smoking image -->
+           <img src = "/img/smoking.png" class = "smoke"/>
+           
                 <form method="POST" action="#">
                     <div data-role="fieldcontain">
                         <label for="username">Username:</label>
