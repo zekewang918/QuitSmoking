@@ -64,8 +64,8 @@
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
 			$username = $_POST['username'];
-			$password = $_POST['password'];
-        	$re_password = $_POST['re_password'];
+			$password = sha1($_POST['password']);
+        	$re_password = sha1($_POST['re_password']);
 			$email = $_POST['email'];
             $plan = $_POST['plan'];
             

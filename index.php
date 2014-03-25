@@ -42,7 +42,7 @@
 			# @param String $password_login
 			
             $username_login = $_POST['username_login'];
-    		$password_login = $_POST['password_login'];
+    		$password_login = sha1($_POST['password_login']);
     		$check_user = mysqli_query($con, "SELECT * FROM UserInfo WHERE User_Name='$username_login' AND Password='$password_login'");
             
             #
