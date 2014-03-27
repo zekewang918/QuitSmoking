@@ -259,7 +259,14 @@
                 <p>Member Since: <?php echo $printableDate;?></p>
         		<p>Hi, <?php echo $firstname;?></p>
         		<p>Your Plan: <?php echo $plan; ?></p>
-                <p>Your Fact: <?php echo $printableFact; ?></p>
+                
+                <!-- Your Fact button  -->
+                <a href="#FactPopup" data-rel="popup" class="ui-corner-all" data-theme = "b"><button>Your Fact</button></a>
+                <div data-role="popup" id="FactPopup">
+                    <p><p><?php echo $printableFact; ?></p></p>
+
+
+                
             	<form method="POST" action="welcome.php">
    					<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="<?php echo $display_num; ?>" placeholder="<?php echo $warning; ?>" />
                 	<p style="color: red"><?php echo $msg;?></p>
