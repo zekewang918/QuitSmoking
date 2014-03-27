@@ -15,7 +15,7 @@
     #
 
     $_SESSION['status'] = false;
-	$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+	$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Newgroup2!', 'QSDatabase');
 	
 	#
     # the if statement is triggerd when the user clicks the submmit button.
@@ -42,7 +42,7 @@
 			# @param String $password_login
 			
             $username_login = $_POST['username_login'];
-    		$password_login = sha1($_POST['password_login']);
+    		$password_login = $_POST['password_login'];
     		$check_user = mysqli_query($con, "SELECT * FROM UserInfo WHERE User_Name='$username_login' AND Password='$password_login'");
             
             #
@@ -118,36 +118,42 @@
         
         <!-- CSS styling -->
         <style>
-        
-        
+       
         .smoke {
        
          height = "30%";
          width = "30%";
          margin-left = "30%";
         }
+        .ui-body-i
+{
+font-weight:bold;
+color:white;
+background-color: #66CCFF;
+}
         
         </style>
-
     </head>
     
-    <body>
+    
+    <body class = "body">
     
     	<!-- This is the main page that is displayed on the browser, which contains a header,
     	     a content section, and a footer. -->
     	     
-        <div data-role="page" id="login">
+        <div data-role="page" id="login" data-theme="i">
             <div data-role="header">
                 <a href="#" data-role="button" data-icon="home" data-iconpos="notext"></a>
   				<h1>Welcome</h1>
- 				<a href="#" data-role="button" data-icon="search">Forum</a>
+ 				<a href="#" data-role="button" data-icon="search" data-iconpos="notext"></a>
             </div>
             
             <!-- The content section contains a small form that has only a username field, a password
                  field, a submit button, and a register button. -->
-    	     
+    	      
             <div data-role="content">
-                <!-- quit smoking image -->
+            
+            <!-- quit smoking image -->
            <img src = "/img/smoking.png" class = "smoke"/>
            
                 <form method="POST" action="#">
@@ -157,8 +163,8 @@
                         <label for="password">Password:</label>
                         <input type="password" name="password_login" id="password">
                     </div>  
-                <input type="submit" data-inline="true" name="login" value="Login">
-                <a href="register.php" data-transition = "slide" data-inline="true" data-role="button">Register</a>
+                <input type="submit" data-inline="true" name="login" value="Login" data-theme = "b">
+                <a href="register.php" data-transition = "slide" data-inline="true" data-role="button" data-theme = "b">Register</a>
                 </form>
             </div>
             

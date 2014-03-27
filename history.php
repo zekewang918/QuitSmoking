@@ -29,12 +29,21 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        
+        <style>
+        .ui-body-i
+{
+font-weight:bold;
+color:white;
+background-color: #66CCFF;
+}
+        </style>
     </head>
     
     <body>
     	<!-- This is the main page that is displayed on the browser, which contains a header,
     	     a content section, and a footer. -->
-        <div data-role="page" id="countSmoking">
+        <div data-role="page" id="countSmoking" data-theme="i">
             <div data-role="header">
                 <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
       			<h1>Quit Smoking</h1>
@@ -48,7 +57,7 @@
             
             <!-- The footer division displays the options that users can select, which includes a back button. -->
             
-            <div data-role="footer">
+            <div data-role="footer" >
                 <div data-role="content" align="center">
                     <a href="welcome.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">Back</a>
   				</div>

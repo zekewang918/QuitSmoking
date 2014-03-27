@@ -20,7 +20,7 @@
     # @return object
     # @param int $count
     
-    $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+    $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Newgroup2!', 'QSDatabase');
     $result = mysqli_query($con, "SELECT User_Name FROM UserInfo WHERE User_Name='$user'");
     $count = mysqli_num_rows($result);
     
@@ -236,6 +236,15 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        
+         <style>
+        .ui-body-i
+{
+font-weight:bold;
+color:white;
+background-color: #66CCFF;
+}
+        </style>
     </head>
     
     <body>
@@ -243,11 +252,10 @@
     	<!-- This is the main page that is displayed on the browser, which contains a header,
     	     a content section, and a footer. -->
     	     
-        <div data-role="page" id="countSmoking">
+        <div data-role="page" id="countSmoking" data-theme ="i">
             <div data-role="header">
                 <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
                 <a href= "http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" value = "Search">Get Help</a>
-                <a href= "bbs.blackroom.me" value = "Forum">Forum</a>
   				<h1>Quit Smoking</h1>
  		    </div>
  		    
@@ -264,17 +272,16 @@
                 <a href="#FactPopup" data-rel="popup" class="ui-corner-all" data-theme = "b"><button>Your Fact</button></a>
                 <div data-role="popup" id="FactPopup">
                     <p><p><?php echo $printableFact; ?></p></p>
-
-
+                </div>
                 
             	<form method="POST" action="welcome.php">
    					<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="<?php echo $display_num; ?>" placeholder="<?php echo $warning; ?>" />
                 	<p style="color: red"><?php echo $msg;?></p>
-                	<input type="submit" name = "plus" value="Plus" data-inline="true">
-                	<input type="submit" name="minus" value="Subtract" data-inline="true">
+                	<input type="submit" name = "plus" value="Plus" data-inline="true" data-theme = "b">
+                	<input type="submit" name="minus" value="Subtract" data-inline="true" data-theme = "b">
                 	<p id="display_money" style="color: red"></p>
                 	<p style="color:red"><?php echo $date;?></p>
-                	<input type="submit" data-inline="true" name="save" value="Save">
+                	<input type="submit" data-inline="true" name="save" value="Save" data-theme = "b">
             	</form> 
             </div>
             
@@ -283,9 +290,10 @@
             <div data-role="footer">
                 <div data-role="content" align="center">
                     <a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
-  					<a href="info.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Profile</a>
-  				</div>
+      				<a href="info.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
+  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
+					<a href="Statistics.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Your Statistics</a>
+                 </div>
             </div>
         </div>
     </body>
