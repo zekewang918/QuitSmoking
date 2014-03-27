@@ -162,7 +162,7 @@
                 </form>
             </div>
             
-            <div data-role="footer">
+            <div data-role="footer" data-position = "fixed">
                 <div data-role="content">
   				</div>
             </div>
