@@ -21,7 +21,8 @@
     # @return object
     # @param int $count
     
-    $con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
+	$con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
+
     $result = mysqli_query($con, "SELECT User_Name FROM UserInfo WHERE User_Name='$user'");
     $count = mysqli_num_rows($result);
     
