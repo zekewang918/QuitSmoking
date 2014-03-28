@@ -7,6 +7,7 @@
 	# @param boolean SESSION_START()
 	
 	SESSION_START();
+	REQUIRE_ONCE('config.php');
 	
 	#
     # $con variable is to set up the connection between the php sever and the database server
@@ -15,7 +16,7 @@
     #
 
     $_SESSION['status'] = false;
-	$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+	$con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
 	
 	#
     # the if statement is triggerd when the user clicks the submmit button.
@@ -42,7 +43,7 @@
 			# @param String $password_login
 			
             $username_login = $_POST['username_login'];
-    		$password_login = sha1($_POST['password_login']);
+    		$password_login = $_POST['password_login'];
     		$check_user = mysqli_query($con, "SELECT * FROM UserInfo WHERE User_Name='$username_login' AND Password='$password_login'");
             
             #
@@ -115,24 +116,47 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        
+        <!-- CSS styling -->
+        <style>
+       
+        .smoke {
+       
+         height = "30%";
+         width = "30%";
+         margin-left = "30%";
+        }
+        .ui-body-i
+{
+font-weight:bold;
+color:white;
+background-color: #66CCFF;
+}
+        
+        </style>
     </head>
     
-    <body>
+    
+    <body class = "body">
     
     	<!-- This is the main page that is displayed on the browser, which contains a header,
     	     a content section, and a footer. -->
     	     
-        <div data-role="page" id="login">
+        <div data-role="page" id="login" data-theme="i">
             <div data-role="header">
                 <a href="#" data-role="button" data-icon="home" data-iconpos="notext"></a>
   				<h1>Welcome</h1>
- 				<a href="#" data-role="button" data-icon="search">Forum</a>
+ 				<a href="#" data-role="button" data-icon="search" data-iconpos="notext"></a>
             </div>
             
             <!-- The content section contains a small form that has only a username field, a password
                  field, a submit button, and a register button. -->
-    	     
+    	      
             <div data-role="content">
+            
+            <!-- quit smoking image -->
+           <img src = "/img/smoking.png" class = "smoke"/>
+           
                 <form method="POST" action="#">
                     <div data-role="fieldcontain">
                         <label for="username">Username:</label>
@@ -140,12 +164,12 @@
                         <label for="password">Password:</label>
                         <input type="password" name="password_login" id="password">
                     </div>  
-                <input type="submit" data-inline="true" name="login" value="Login">
-                <a href="register.php" data-transition = "slide" data-inline="true" data-role="button">Register</a>
+                <input type="submit" data-inline="true" name="login" value="Login" data-theme = "b">
+                <a href="register.php" data-transition = "slide" data-inline="true" data-role="button" data-theme = "b">Register</a>
                 </form>
             </div>
             
-            <div data-role="footer">
+            <div data-role="footer" data-position = "fixed">
                 <div data-role="content">
   				</div>
             </div>

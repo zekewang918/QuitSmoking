@@ -13,6 +13,8 @@
 	# @param String $repeatpass_error
 	# @param String $email_error
 	
+	REQUIRE_ONCE('config.php');
+	
     $fname_error = '';
     $lname_error ='';
     $username_error = '';
@@ -31,7 +33,7 @@
     # $con variable is to set up the connection between the php sever and the database server
     #
     
-    $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Group2!!!', 'QSDatabase');
+    $con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
     
     #
     # the if statement is triggerd when the user clicks a submmit button.
