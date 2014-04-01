@@ -13,8 +13,6 @@
 	# @param String $repeatpass_error
 	# @param String $email_error
 	
-	REQUIRE_ONCE('config.php');
-	
     $fname_error = '';
     $lname_error ='';
     $username_error = '';
@@ -33,7 +31,7 @@
     # $con variable is to set up the connection between the php sever and the database server
     #
     
-    $con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
+    $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Newgroup2!', 'QSDatabase');
     
     #
     # the if statement is triggerd when the user clicks a submmit button.
@@ -66,8 +64,8 @@
 			$fname = $_POST['fname'];
 			$lname = $_POST['lname'];
 			$username = $_POST['username'];
-			$password = sha1($_POST['password']);
-        	$re_password = sha1($_POST['re_password']);
+			$password = $_POST['password'];
+        	$re_password = $_POST['re_password'];
 			$email = $_POST['email'];
             $plan = $_POST['plan'];
             
@@ -150,6 +148,7 @@
 				if (!$result)
 				{
 					mysqli_query($con, "INSERT INTO UserInfo (First_Name, Last_Name, User_Name, Password, Email, Plan, Member_Since) VALUES ('$fname', '$lname', '$username', '$password', '$email', '$plan', '$memberSince')");
+                    header('Location: index.php');
 				}
 			} else {
 			}
@@ -190,7 +189,7 @@
                  which echos the error message when necessary. -->
     	     
             <div data-role="content">
-                <form method="POST" action="register.php">
+                <form method="POST" action="#" data-ajax="false">
                     <div data-role="fieldcontain">
 						<label for="fname">First Name:</label>
                         <input type="text" name="fname" id="fname" value=""><p style="color: red"><?php echo $fname_error; ?></p>
@@ -206,8 +205,8 @@
                         <input type="email" name="email" id="email"><p style="color: red"><?php echo $email_error; ?></p>
             			<label for="day">Plan:</label>
                         <select name="plan" id="plan">
-                            <option value="Healthy Counter">Healthy Counter</option>
-                            <option value="Money Saver">Money Saver</option>
+                            <option value="Health Focused">Health Focused</option>
+                            <option value="Money Focused">Money Focused</option>
                         </select>
                     </div>
                 <input type="submit" data-inline="true" data-ajax="false" name="register" value="Register">

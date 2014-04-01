@@ -7,7 +7,6 @@
 	# @param boolean SESSION_START()
 	
 	SESSION_START();
-	REQUIRE_ONCE('config.php');
 	
 	#
     # $con variable is to set up the connection between the php sever and the database server
@@ -16,7 +15,7 @@
     #
 
     $_SESSION['status'] = false;
-	$con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
+	$con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Newgroup2!', 'QSDatabase');
 	
 	#
     # the if statement is triggerd when the user clicks the submmit button.
@@ -119,7 +118,7 @@
         
         <!-- CSS styling -->
         <style>
-       
+
         .smoke {
        
          height = "30%";
@@ -144,9 +143,7 @@ background-color: #66CCFF;
     	     
         <div data-role="page" id="login" data-theme="i">
             <div data-role="header">
-                <a href="#" data-role="button" data-icon="home" data-iconpos="notext"></a>
   				<h1>Welcome</h1>
- 				<a href="#" data-role="button" data-icon="search" data-iconpos="notext"></a>
             </div>
             
             <!-- The content section contains a small form that has only a username field, a password
@@ -157,7 +154,7 @@ background-color: #66CCFF;
             <!-- quit smoking image -->
            <img src = "/img/smoking.png" class = "smoke"/>
            
-                <form method="POST" action="#">
+                <form method="POST" action="#" data-ajax="false">
                     <div data-role="fieldcontain">
                         <label for="username">Username:</label>
                         <input type="text" name="username_login" id="username">

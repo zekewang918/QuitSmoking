@@ -10,7 +10,6 @@
 	# @param String $plan
 	
     SESSION_START();
-    REQUIRE_ONCE('config.php');
 
 	$user = $_SESSION['username'];
     $plan = $_SESSION['plan'];
@@ -21,8 +20,7 @@
     # @return object
     # @param int $count
     
-	$con = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
-
+    $con = mysqli_connect('68.178.143.9', 'QSDatabase', 'Newgroup2!', 'QSDatabase');
     $result = mysqli_query($con, "SELECT User_Name FROM UserInfo WHERE User_Name='$user'");
     $count = mysqli_num_rows($result);
     
@@ -256,9 +254,8 @@ background-color: #66CCFF;
     	     
         <div data-role="page" id="countSmoking" data-theme ="i">
             <div data-role="header">
-                <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
-                <a href= "http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" value = "Search">Get Help</a>
   				<h1>Quit Smoking</h1>
+                  <a href="index.php" data-transition = "slide">Logout</a>
  		    </div>
  		    
  		    <!-- The content page displays the date that the user registered, user's first name,
@@ -269,9 +266,24 @@ background-color: #66CCFF;
                 <p>Member Since: <?php echo $printableDate;?></p>
         		<p>Hi, <?php echo $firstname;?></p>
         		<p>Your Plan: <?php echo $plan; ?></p>
+                <?php
+                  $temp = "Health Focused";
+                  if (strcmp($plan, $temp) == 0){
+                      echo "<select>
+                            <option>name 1</option>
+                                <option>name 2</option>
+                                    <option>name 3</option>
+                            </select>";
+                  }
+                
+                
+                
+                
+                ?>
                 
                 <!-- Your Fact button  -->
-                <a href="#FactPopup" data-rel="popup" class="ui-corner-all" data-theme = "b"><button>Your Fact</button></a>
+                                <a href="#FactPopup" data-rel="popup" data-role="button" data-theme = "b">Your Fact</a>
+   <!--             <a href="#FactPopup" data-rel="popup" class="ui-corner-all"><button data-theme = "f">Your Fact</button></a>-->
                 <div data-role="popup" id="FactPopup">
                     <p><p><?php echo $printableFact; ?></p></p>
                 </div>
@@ -289,12 +301,15 @@ background-color: #66CCFF;
             
         	<!-- The footer division displays the options that users can select, which includes history, information, and setting. -->
             
-            <div data-role="footer">
-                <div data-role="content" align="center">
-                    <a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
-      				<a href="info.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
-					<a href="Statistics.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Your Statistics</a>
+            <div data-role="footer" data-position="fixed">
+    
+                <div data-role="navbar" align="center">
+                    <ul>
+                    <li><a href="history.php" data-transition = "slide"  data-icon="info">History</a></li>
+                    <li><a href= "bbs.blackroom.me" data-transition = "slide" data-icon="grid" value = "Forum">Forum</a></li>
+      				<li><a href="info.html" data-transition = "slide" data-icon="star">Information</a></li>
+					<li><a href="http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" data-transition = "slide" data-icon="heart">Get Help</a></li>
+                    </ul>
                  </div>
             </div>
         </div>
