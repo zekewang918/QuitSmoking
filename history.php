@@ -45,7 +45,6 @@ background-color: #66CCFF;
     	     a content section, and a footer. -->
         <div data-role="page" id="countSmoking" data-theme="i">
             <div data-role="header">
-                <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
       			<h1>Quit Smoking</h1>
  		    </div>
  		    
