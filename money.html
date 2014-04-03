@@ -13,7 +13,7 @@
         <div data-role="page" id="login">
             <div data-role="header">
                 <a href="#" data-role="button" data-icon="home" data-iconpos="notext"></a>
-  				<h1>Statistics</h1>
+  				<h1>Money status</h1>
  				<a href="#" data-role="button" data-icon="search" data-iconpos="notext"></a>
             </div>
 				
@@ -21,9 +21,11 @@
 					
 					<input type="text" id="price"=>Enter the price of your packets</input>
 					<input type="text" id="number"=>Enter the number of cigarettes by packets</input>
-					<button onclick="getValues(100)">Submit</button>
+					<button onclick="moneyStatus(100, 250)">Submit</button>
 
 					<p id ="money_spent"></p>
+					<p id ="money_saved"></p>
+					
 			</div>
            
 			
@@ -31,8 +33,8 @@
                 <div data-role="content">
   					<a href="history.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">History</a>
   					<a href="info.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Information</a>
-  					<a href="#" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Setting</a>
-					<a href="Statistics.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Your Statistics</a>
+  					<a href="money.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="gear">Money status</a>
+					<a href="statistics.html" data-transition = "slide" data-role="button" data-inline = "true" data-icon="star">Your Statistics</a>
   				</div>
             </div>
         </div>
