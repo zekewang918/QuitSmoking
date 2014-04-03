@@ -121,8 +121,8 @@
 
         .smoke {
        
-         height = "30%";
-         width = "30%";
+         height = "10%";
+         width = "10%";
          margin-left = "30%";
         }
         .ui-body-i
@@ -131,7 +131,7 @@ font-weight:bold;
 color:white;
 background-color: #66CCFF;
 }
-        
+
         </style>
     </head>
     
@@ -143,16 +143,16 @@ background-color: #66CCFF;
     	     
         <div data-role="page" id="login" data-theme="i">
             <div data-role="header">
-  				<h1>Welcome</h1>
+  				<h1>Quit Smoking</h1>
             </div>
             
             <!-- The content section contains a small form that has only a username field, a password
-                 field, a submit button, and a register button. -->
+                 field, a submit button, and a register button. 
     	      
             <div data-role="content">
             
             <!-- quit smoking image -->
-           <img src = "/img/smoking.png" class = "smoke"/>
+           <img src = "/img/smoking.jpg" class = "smoke"/>
            
                 <form method="POST" action="#" data-ajax="false">
                     <div data-role="fieldcontain">

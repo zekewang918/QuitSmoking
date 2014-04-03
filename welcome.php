@@ -242,7 +242,7 @@
 {
 font-weight:bold;
 color:white;
-background-color: #66CCFF;
+background-color: #80E6FF;
 }
         </style>
     </head>
@@ -255,7 +255,7 @@ background-color: #66CCFF;
         <div data-role="page" id="countSmoking" data-theme ="i">
             <div data-role="header">
   				<h1>Quit Smoking</h1>
-                  <a href="index.php" data-transition = "slide">Logout</a>
+                  <a href="index.php" data-transition = "slide" data-icon = "back" data-iconpos="notext">Back</a>
  		    </div>
  		    
  		    <!-- The content page displays the date that the user registered, user's first name,
@@ -291,11 +291,13 @@ background-color: #66CCFF;
             	<form method="POST" action="welcome.php">
    					<label for="number">Enter the number of cigarettes: </label><input type="text" id="number" name="number" value="<?php echo $display_num; ?>" placeholder="<?php echo $warning; ?>" />
                 	<p style="color: red"><?php echo $msg;?></p>
-                	<input type="submit" name = "plus" value="Plus" data-inline="true" data-theme = "b">
-                	<input type="submit" name="minus" value="Subtract" data-inline="true" data-theme = "b">
+                	<!--<input type="submit" name = "plus" value="Plus" data-inline="true" data-theme = "b">
+                	<input type="submit" name="minus" value="Subtract" data-inline="true" data-theme = "b">-->
+                    <input type="submit" name = "plus" data-icon = "plus" data-inline = "true" value="Plus" data-theme = "b">
+                    <input type="submit" name = "minus" data-icon = "minus" data-inline = "true" value="Minus" data-theme = "b">
                 	<p id="display_money" style="color: red"></p>
                 	<p style="color:red"><?php echo $date;?></p>
-                	<input type="submit" data-inline="true" name="save" value="Save" data-theme = "b">
+                	<input type="submit" data-inline="true" name="save" value="Save" data-icon = "refresh" data-theme = "b">
             	</form> 
             </div>
             
@@ -306,7 +308,7 @@ background-color: #66CCFF;
                 <div data-role="navbar" align="center">
                     <ul>
                     <li><a href="history.php" data-transition = "slide"  data-icon="info">History</a></li>
-                    <li><a href= "bbs.blackroom.me" data-transition = "slide" data-icon="grid" value = "Forum">Forum</a></li>
+                    <li><a href= "http://bbs.blackroom.me" data-transition = "slide" data-icon="grid" value = "Forum">Forum</a></li>
       				<li><a href="info.html" data-transition = "slide" data-icon="star">Information</a></li>
 					<li><a href="http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" data-transition = "slide" data-icon="heart">Get Help</a></li>
                     </ul>

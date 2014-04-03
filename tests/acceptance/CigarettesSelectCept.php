@@ -9,13 +9,9 @@ $I->see('Member Since');
 $I->see('Hi, Xike');
 $I->see('Your Plan: Healthy Counter');
 $I->see('Enter the number of cigarettes');
-$I->see('Plus');
-$I->see('1');
-$I->see('Save');
-//$I->seeInDatabase('SmokingInfo', array('User_Name' => 'xike', 'First_Name' => 'Xike' 'Last_Name' => 'Wang', 'Number' => '1', 'Date' => '2014-03-08 14:23:10'));
-$I->click('history');
-$I->amOnPage('/history.php');
-$I->see('Xike');
-$I->see('Wang');
-$I->see('2014-03-11 11:30:21');
+$I->see('Selct Cigarettes');
+$I->see('Number Seven');
+$I->see('Belmont');
+$I->seeInDatabase('SmokingInfo', array('User_Name' => 'xike', 'First_Name' => 'Xike' 'Last_Name' => 'Wang', 'Number' => '1', 'Date' => '2014-03-08 14:23:10'));
+$I->seeInDatabase('Cigarettes', array('Name' => 'Number Seven', 'Box' => 'King' 'Price' => '1.5');
 ?>

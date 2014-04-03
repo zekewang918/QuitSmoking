@@ -45,6 +45,7 @@ background-color: #66CCFF;
     	     a content section, and a footer. -->
         <div data-role="page" id="countSmoking" data-theme="i">
             <div data-role="header">
+                <a href="welcome.php" data-transition = "slide" data-icon = "back" data-iconpos="notext">Back</a>
       			<h1>Quit Smoking</h1>
  		    </div>
  		    
@@ -56,10 +57,15 @@ background-color: #66CCFF;
             
             <!-- The footer division displays the options that users can select, which includes a back button. -->
             
-            <div data-role="footer" >
-                <div data-role="content" align="center">
-                    <a href="welcome.php" data-transition = "slide" data-role="button" data-inline = "true" data-icon="info">Back</a>
-  				</div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar" align="center">
+                    <ul>
+                    <li><a href="history.php" data-transition = "slide"  data-icon="info">History</a></li>
+                    <li><a href= "http://bbs.blackroom.me" data-transition = "slide" data-icon="grid" value = "Forum">Forum</a></li>
+          			<li><a href="info.html" data-transition = "slide" data-icon="star">Information</a></li>
+					<li><a href="http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" data-transition = "slide" data-icon="heart">Get Help</a></li>
+                    </ul>
+                 </div>
             </div>
         </div>
     </body>

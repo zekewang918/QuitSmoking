@@ -24,8 +24,7 @@ background-color: #66CCFF;
     	     
         <div data-role="page" id="countSmoking" data-theme = "i">
             <div data-role="header">
-                <a href= "index.php" data-icon="home" data-iconpos="notext"></a>
-                <a href= "http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" value = "Search">Get Help</a>
+                <a href= "welcome.php" data-icon="back" data-iconpos="notext"></a>
           		<h1>Quit Smoking</h1>
  		    </div>
              
@@ -46,10 +45,16 @@ background-color: #66CCFF;
              
              <!-- The footer contains a back button, which will redirect the browser to the previous page. -->
              
-            <div data-role="footer" data-position = "fixed">
-                <div data-role="content" align="center">
-                  <a href="welcome.php" data-transition = "slide" data-inline="true" data-role="button">Back</a>
-            	</div>
-			</div>
+            <div data-role="footer" data-position="fixed">
+    
+                <div data-role="navbar" align="center">
+                    <ul>
+                    <li><a href="history.php" data-transition = "slide"  data-icon="info">History</a></li>
+                    <li><a href= "http://bbs.blackroom.me" data-transition = "slide" data-icon="grid" value = "Forum">Forum</a></li>
+          			<li><a href="info.html" data-transition = "slide" data-icon="star">Information</a></li>
+					<li><a href="http://www.healthycanadians.gc.ca/health-sante/tobacco-tabac/quit-arretez-eng.php" data-transition = "slide" data-icon="heart">Get Help</a></li>
+                    </ul>
+                 </div>
+            </div>
     </body>
 </html>    
