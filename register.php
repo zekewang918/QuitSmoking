@@ -171,6 +171,14 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+         <style>
+        .ui-body-i
+            {
+                font-weight:bold;
+                color:white;
+                background-color: #66CCFF;
+            }
+        </style>
     </head>
     
     <body>
@@ -178,7 +186,7 @@
     	<!-- This is the main page that is displayed on the browser, which contains a header,
     	     a content section, and a footer. -->
     	     
-        <div data-role="page" id="register">
+        <div data-role="page" id="register" data-theme= "i">
             <div data-role="header">
                 <h1>Register</h1>
             </div>
@@ -203,13 +211,13 @@
                         <label for="email">Email:</label>
                         <input type="email" name="email" id="email"><p style="color: red"><?php echo $email_error; ?></p>
             			<label for="day">Plan:</label>
-                        <select name="plan" id="plan">
+                        <select name="plan" id="plan" data-theme = "b">
                             <option value="Health Focused">Health Focused</option>
                             <option value="Money Focused">Money Focused</option>
                         </select>
                     </div>
-                <input type="submit" data-inline="true" data-ajax="false" name="register" value="Register">
-                <a href="index.php" data-transition = "slide" data-inline="true" data-role="button">Back</a>
+                <input type="submit" data-inline="true" data-ajax="false" name="register" value="Register" data-theme = "b">
+                <a href="index.php" data-transition = "slide" data-inline="true" data-role="button" data-theme = "b">Back</a>
                 </form>
             </div>
             

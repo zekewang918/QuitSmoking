@@ -239,11 +239,12 @@
         
          <style>
         .ui-body-i
-{
-font-weight:bold;
-color:white;
-background-color: #80E6FF;
-}
+            {
+                font-weight:bold;
+                color:white;
+                background-color: #66CCFF;
+            }
+         
         </style>
     </head>
     
