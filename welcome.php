@@ -28,13 +28,7 @@
 	# if the user stored in the session data is in the database, then update their money status,
 	# and print out a blank page if user tries to access to this page by simply typing the url.
 	#
-	/*
-	if ($count == 1)
-	{            
-		mysqli_query($con, "UPDATE countMoney SET number= '$money' WHERE User_name = '$user'");
-	} else {
-		exit;
-	}*/
+
 	if (!$_SESSION['status'])
 	{
 		exit;
