@@ -2,26 +2,44 @@
 // all jasmine test are here
 
 describe("test the function getPricePerCigarette ", function() {
-	var spyEven;
 
-	it("Test good and bad cases", function() {
-	   var spyEven = spyOnEvent( ,'click'); // pb here
-	   //Good cases :
+	it("Test normal cases", function() {
+		// Page initialisation
+		addTagToHtmlBody('<input type="text" id="price" >Enter the price of your packets</input>');
+		addTagToHtmlBody('<input type="text" id="number">Enter the number of cigarettes by packets</input>');
+		
+	   //We simulate a user input
+	   document.getElementById("price").value = '10';
+	   document.getElementById("number").value = '20';
+
+	   //Good case :
 	   var a = getPricePerCigarette();
 
-	  // division by zero
-	  var b = isNaN(getPricePerCigarette());
+	  expect(document.getElementById("price").value).toMatch('10');
+	  expect(document.getElementById("number").value).toMatch('20');
+	  expect(a).toEqual(0.5);
+	 }); 
+	 
+	 it("Test other cases", function() {
+	   // division by zero
+	   document.getElementById("number").value = '0';	
+	   var b = isFinite(getPricePerCigarette());
+	   console.log(getPricePerCigarette());
 	  // negative
-	  var c = null;
+	  document.getElementById("number").value = '-10';	
+	  var c = getPricePerCigarette();
 	  
-	  expect(a).toEqual(1);
-	  expect(b).toBe(true);
+	  expect(b).toBe(false);
       expect(c).toEqual(-1);
-    });
-});		
-	
+	   
+	 }); 
 
-
+});
+// Code refactoring
+function addTagToHtmlBody(new_tag) {
+			$(new_tag).appendTo('body');
+		}
+		
 describe("test the function totalMoneySpent ", function() {
 
     it("Test normal case", function() {
@@ -51,11 +69,24 @@ describe("test the function moneyStatus ", function() {
 
     it("Test normal case", function() {
 	
+	// Page initialisation
+	addTagToHtmlBody('<p id ="money_spent">');
+	addTagToHtmlBody('<p id ="money_saved"></p>');
+
 	// Simulate user inputs :
-	
-      var a = moneyStatus(100, 200); 
-	  // will not pass does not return anything and depend on the input
-	  expect(a).toEqual(50);
+	  document.getElementById("price").value = '10';
+	  document.getElementById("number").value = '20';
+	  
+      moneyStatus(100, 200); 
+	  
+	  a = document.getElementById("money_spent").innerHTML;
+	  b = 'You have spent $50 since you joined this program.';
+	  
+	  c= document.getElementById("money_saved").innerHTML;
+	  d= 'You have saved $50 since you joined this program.';
+
+	  expect(a).toEqual(b);
+	  expect(c).toEqual(d);
     });
 	
 });
